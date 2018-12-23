@@ -18,7 +18,6 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<String> {
     /*
      * 收到消息时，返回信息
      */
-    @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg)
             throws Exception {
         // 收到消息直接打印输出
@@ -40,4 +39,10 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<String> {
         ctx.writeAndFlush("客户端"+ InetAddress.getLocalHost().getHostName() + "成功与服务端建立连接！ \n");
         super.channelActive(ctx);
     }
+
+	@Override
+	protected void messageReceived(ChannelHandlerContext ctx, String msg) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
 }

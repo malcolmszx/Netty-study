@@ -14,9 +14,8 @@ import io.netty.channel.SimpleChannelInboundHandler;
  */
 public class NettyClientHandler extends SimpleChannelInboundHandler<String> {
 
-    @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {  
-        System.out.println("客户端接受的消息: " + msg);
+        
     }
 
     //
@@ -31,4 +30,9 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<String> {
         System.out.println("连接关闭! ");
         super.channelInactive(ctx);
     }
+
+	@Override
+	protected void messageReceived(ChannelHandlerContext ctx, String msg) throws Exception {
+		System.out.println("客户端接受的消息: " + msg);
+	}
 }
